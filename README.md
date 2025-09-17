@@ -128,9 +128,36 @@ When checking a wallet, the bot returns structured information:
   - Transactions Out: XXX
 ```
 
-## Integration Details
+## System Architecture
+
+### Platform Components
+The bot operates as a cloud-based service that connects multiple business systems:
+
+- **Communication Layer**: Lark (Feishu) workspace integration for team messaging
+- **Data Processing Engine**: n8n workflow automation platform for business logic
+- **Database Storage**: Google Sheets for transparent, accessible data management
+- **External Data Sources**: TRON blockchain network APIs for real-time wallet information
+
+### Data Flow Architecture
+1. **User Input**: Commands received through Lark chat interface
+2. **Validation Layer**: Address format and parameter checking
+3. **Data Retrieval**: Real-time blockchain data fetching from TRON network
+4. **Database Operations**: Cross-referencing internal blacklist and whitelist databases
+5. **Report Generation**: Automated CSV creation and file delivery
+6. **Response Delivery**: Formatted results sent back to Lark chat
+
+### Infrastructure Benefits
+- **Cloud-Based**: No local installation or maintenance required
+- **Scalable**: Handles individual requests or bulk processing seamlessly  
+- **Transparent**: Database stored in familiar Google Sheets format
+- **Accessible**: Team members can view and audit data directly
+- **Reliable**: Automated error handling and retry mechanisms
+- **Audit-Ready**: Complete activity logging for compliance reviews
+
+### Integration Details
 
 - **Platform**: Lark (Feishu) messaging platform
+- **Automation Engine**: n8n workflow platform
 - **Blockchain**: TRON network (TRC20 addresses)
 - **Data Sources**: TronGrid API, TronScan API
 - **Storage**: Google Sheets integration for database management
